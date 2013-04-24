@@ -44,4 +44,20 @@ public class Solution
 		diff = sum2 * sum2 - sum1;
 		System.out.println( diff );
 	}
+	public void Problem_5()
+	{
+		int ans = 1;
+		for( int i = 2; i <= 20; ++i )
+			ans = lcm( ans, i );
+		System.out.println( ans );
+	}
+	public int gcd( int m, int n )
+	{
+		if( n == 0 ) return m;
+		return gcd( n, m % n );
+	}
+	public int lcm( int m, int n )
+	{
+		return m / gcd( m , n ) * n;
+	}
 }
