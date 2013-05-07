@@ -148,4 +148,20 @@ public class Solution
 		}
 		System.out.println(max);
 	}
+	public void Problem_9()
+	{
+		int i, j, k;
+		for( i = 1; i <= 1000; ++i )
+			for( j = i; i + j <= 1000; ++j )
+			{
+				k = 1000 - i - j;
+				if( i * i + j * j == k * k )
+				{
+					System.out.println(i);
+					System.out.println(j);
+					System.out.println(k);
+					System.out.println(i*j*k);
+				}
+			}
+	}
 }
