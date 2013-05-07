@@ -182,4 +182,19 @@ public class Solution
 		}
 		System.out.println(ans);
 	}
+	public void Problem_16()
+	{
+		BigInteger n = BigInteger.valueOf(2);
+		n = n.pow(1000);
+		int sum = 0;
+		String s = n.toString();
+		for (int i = 0; i < s.length(); i++)
+		{
+			Character c = new Character(s.charAt(i));
+			String z = c.toString();
+			int j = Integer.parseInt(z);
+			sum += j;
+		}
+		System.out.println(sum);
+	}
 }
