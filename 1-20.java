@@ -164,4 +164,22 @@ public class Solution
 				}
 			}
 	}
+	public void Problem_10()
+	{
+		final int MAX = 2000000;
+		boolean[] prime = new boolean[MAX];
+		for( int i = 0; i < MAX; ++i )
+			prime[i] = true;
+		int index = 2;
+		long ans = 0;
+		while( index < MAX )
+		{
+			if( prime[index] == true )
+				ans += index;
+			for( int i = 2; index * i < MAX; ++i )
+				prime[ index * i ] = false;
+			index++;
+		}
+		System.out.println(ans);
+	}
 }
