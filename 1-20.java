@@ -401,8 +401,7 @@ public class Solution
 			String num = str.substring( i*50, (i+1)*50-1 );
 			sum = sum.add( new BigInteger(num) );
 		}
-		String ans = sum.toString(10);
-		ans = ans.substring(0, 10);
+		String ans = sum.toString(10).substring(0, 10);
 		System.out.println(ans);
 	}
 	public static void main( String[] argv )
