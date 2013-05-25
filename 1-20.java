@@ -404,6 +404,39 @@ public class Solution
 		String ans = sum.toString(10).substring(0, 10);
 		System.out.println(ans);
 	}
+	public void Problem_14()
+	{
+		int maxcnt = 0;
+		int ans = 0;
+		int[] step = new int[1000001];
+		for( int i = 0; i < 1000001; ++i )
+			step[i] = -1;
+		step[0] = 0;
+		step[1] = 0;
+		for( int i = 2; i <= 1000000; ++i )
+		{
+			//			System.out.println("---------" + i );
+			long k = i;
+			int cnt = 0;
+			while( k > 1000000 || step[(int) k] == -1 )
+			{
+				if( k % 2 == 0 )
+					k = k / 2;
+				else
+					k = 3 * k + 1;
+				cnt++;
+				//				System.out.println(k);
+			}
+			cnt += step[(int) k];
+			step[i] = cnt;
+			if( cnt > maxcnt )
+			{
+				maxcnt = cnt;
+				ans = i;
+			}
+		}
+		System.out.println(ans);
+	}
 	public static void main( String[] argv )
 	{
 		Solution so = new Solution();
