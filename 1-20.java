@@ -462,6 +462,22 @@ public class Solution
 		}
 		System.out.println(ans);
 	}
+	public void Problem_15()
+	{
+		long[][] ans = new long[22][22];
+		ans[0][0] = 1;
+		for( int i = 0; i < 21; ++i )
+		{
+			for( int j = 0; j < 21; ++j )
+			{
+				if( i == 0 || j == 0 )
+					ans[i][j] = 1;
+				else
+					ans[i][j] = ans[i-1][j] + ans[i][j-1];
+			}
+		}
+		System.out.println(ans[20][20]);
+	}
 	public static void main( String[] argv )
 	{
 		Solution so = new Solution();
