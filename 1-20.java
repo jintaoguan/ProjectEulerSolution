@@ -437,6 +437,31 @@ public class Solution
 		}
 		System.out.println(ans);
 	}
+	public void Problem_12()
+	{
+		int num = 1;
+		int k = 2;
+		int ans = 0;
+		while( true )
+		{
+			int cntd = 0;
+			num = num + k;
+			k++;
+			for( int i = 1; i < (int)(Math.sqrt(num)); ++i  )
+			{
+				if( num % i == 0 )
+					cntd += 2;
+			}
+			if( num % (int)(Math.sqrt(num)) == 0 )
+				cntd++;
+			if( cntd >= 500 ) 
+			{
+				ans = num;
+				break;
+			}
+		}
+		System.out.println(ans);
+	}
 	public static void main( String[] argv )
 	{
 		Solution so = new Solution();
