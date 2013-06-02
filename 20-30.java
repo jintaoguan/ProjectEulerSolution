@@ -59,9 +59,6 @@ public class Solution
 		String format = buffer.replaceAll("\"", "");
 		String[] names = format.split(",");
 		Arrays.sort(names);
-		for( int i = 0; i < names.length; ++i )
-			System.out.println( names[i]);
-		System.out.println( names.length);
 		long sum = 0;
 		for( int i = 0; i < names.length; ++i )
 		{
@@ -72,7 +69,6 @@ public class Solution
 				int index = name.charAt(j) - 'A';
 				tmp += (index+1);
 			}
-			System.out.println(tmp);
 			sum += tmp * (i+1);
 		}
 		System.out.println(sum);
