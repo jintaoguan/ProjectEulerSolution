@@ -74,6 +74,54 @@ public class Solution
 		}
 		System.out.println(sum);
 	}
+	public void Problem_28()
+	{
+		int matrix[][] = new int[1001][1001];
+		boolean visit[][] = new boolean[1001][1001];
+		for( int i = 0; i < 1001; ++i )
+			for( int j = 0; j < 1001; ++j )
+				visit[i][j] = false;
+		int dir[][] = new int[][]{ {0, 1}, {1, 0}, {0, -1}, { -1, 0} };
+		generateMap( matrix, visit, dir, 3, 1001/2, 1001/2, 1 );
+		long sum = 1;
+		int d = 1;
+		while( d <= 500 )
+		{
+			sum += matrix[500+d][500+d];
+			sum += matrix[500-d][500+d]; 
+			sum += matrix[500+d][500-d];
+			sum += matrix[500-d][500-d];
+			d++;
+		}
+		System.out.println(sum);
+	}
+	public void generateMap( int[][] map, boolean[][] visit, int[][] dir, 
+			int curdir, int x, int y, int depth )
+	{
+		while( depth <= 1001 * 1001 )
+		{
+			map[x][y] = depth;
+			visit[x][y] = true;
+			if( depth == 1001 * 1001 ) 
+				return;
+			int nx = x + dir[(curdir + 1) % 4][0];
+			int ny = y + dir[(curdir + 1) % 4][1];
+			int cx = x + dir[curdir][0];
+			int cy = y + dir[curdir][1];
+			if( visit[nx][ny] == true )
+			{
+				x = cx;
+				y = cy;
+			}
+			else
+			{
+				x = nx;
+				y = ny;
+				curdir = ( curdir + 1 ) % 4;
+			}
+			depth++;
+		}
+	}
 	public static void main( String[] argv )
 	{
 		Solution so = new Solution();
