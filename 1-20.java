@@ -478,6 +478,44 @@ public class Solution
 		}
 		System.out.println(ans[20][20]);
 	}
+	public void Problem_18()
+	{
+		int[][] triangle = new int[15][];
+		triangle[0] = new int[]{ 75 };
+		triangle[1] = new int[]{ 95, 64 };
+		triangle[2] = new int[]{ 17, 47, 82 };
+		triangle[3] = new int[]{ 18, 35, 87, 10 };
+		triangle[4] = new int[]{ 20, 04, 82, 47, 65 };
+		triangle[5] = new int[]{ 19, 01, 23, 75, 03, 34 };
+		triangle[6] = new int[]{ 88, 02, 77, 73, 07, 63, 67 };
+		triangle[7] = new int[]{ 99, 65, 04, 28, 06, 16, 70, 92 };
+		triangle[8] = new int[]{ 41, 41, 26, 56, 83, 40, 80, 70, 33 };
+		triangle[9] = new int[]{ 41, 48, 72, 33, 47, 32, 37, 16, 94, 29 };
+		triangle[10] = new int[]{ 53, 71, 44, 65, 25, 43, 91, 52, 97, 51, 14 };
+		triangle[11] = new int[]{ 70, 11, 33, 28, 77, 73, 17, 78, 39, 68, 17, 57 };
+		triangle[12] = new int[]{ 91, 71, 52, 38, 17, 14, 91, 43, 58, 50, 27, 29, 48 };
+		triangle[13] = new int[]{ 63, 66, 04, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31 };
+		triangle[14] = new int[]{ 04, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 04, 23 };
+		for( int i = 1; i < 15; ++i )
+		{
+			for( int j = 0; j <= i; ++j )
+			{
+				if( j == 0 ) 
+					triangle[i][j] += triangle[i-1][j];
+				else if( j == i )
+					triangle[i][j] += triangle[i-1][j-1];
+				else
+					triangle[i][j] = triangle[i][j] + Math.max(triangle[i-1][j], triangle[i-1][j-1]); 
+			}
+		}
+		int ans = 0;
+		for( int i = 0 ; i < 15; ++i )
+		{
+			if( ans < triangle[14][i] )
+				ans = triangle[14][i];
+		}
+		System.out.println(ans);
+	}
 	public static void main( String[] argv )
 	{
 		Solution so = new Solution();
