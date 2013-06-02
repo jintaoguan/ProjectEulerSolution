@@ -122,6 +122,42 @@ public class Solution
 			depth++;
 		}
 	}
+	public void Problem_24()
+	{
+		int[] perm = new int[] { 0, 1, 2, 3 };
+		int count = 1;
+		int numPerm = 1000000;
+		while (count < numPerm) {
+			int N = perm.length;
+			int i = N-1;
+			while (perm[i - 1] >= perm[i]) {
+				i = i - 1;
+			}
+			int j = N;
+			while (perm[j - 1] <= perm[i - 1]) {
+				j = j - 1;
+			}
+			// swap values at position i-1 and j-1
+			int tmp = perm[i-1];
+			perm[i-1] = perm[j-1];
+			perm[j-1] = tmp;
+			i++;
+			j = N;
+			while (i < j) {
+				tmp = perm[i-1];
+				perm[i-1] = perm[j-1];
+				perm[j-1] = tmp;
+				i++;
+				j--;
+			}
+			count++;
+		}
+		String permNum = "";
+		for (int k = 0; k < perm.length; k++) {
+			permNum = permNum + perm[k];
+		}
+		System.out.println(permNum);
+	}
 	public static void main( String[] argv )
 	{
 		Solution so = new Solution();
